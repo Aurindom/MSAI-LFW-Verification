@@ -1,0 +1,19 @@
+seed: 42
+
+data:
+  tfds_name: lfw
+  tfds_version: 1.0.0
+  cache_dir: data/tfds
+
+split_policy:
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+pair_policy:
+  positives_per_identity: 5
+  negatives_per_identity: 5
+
+benchmark:
+  N: 20000
+  D: 512
