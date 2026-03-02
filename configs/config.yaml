@@ -1,0 +1,12 @@
+data:
+  data_home: data/raw
+  out_dir: data/processed
+  min_faces_per_person: 20
+  seed: 42
+  test_size: 0.2
+
+pairs:
+  n_positive: 500
+  n_negative: 500
+  out_dir: data/pairs
+  seed: 42
