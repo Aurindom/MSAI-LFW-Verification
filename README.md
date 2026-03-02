@@ -18,8 +18,6 @@ lfw-verification/
 │   └── config.yaml    # All hyperparameters and paths
 ├── tests/
 │   └── test_similarity.py
-├── notebooks/
-│   └── exploration.ipynb
 └── requirements.txt
 ```
 

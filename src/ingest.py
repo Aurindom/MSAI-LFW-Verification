@@ -2,7 +2,6 @@ import json
 import yaml
 import numpy as np
 from pathlib import Path
-from sklearn.datasets import fetch_lfw_people
 
 ROOT = Path(__file__).parent.parent
 
@@ -13,6 +12,7 @@ def load_config(path="configs/config.yaml"):
 
 
 def ingest(cfg):
+    from sklearn.datasets import fetch_lfw_people
     dcfg = cfg["data"]
     out_dir = Path(dcfg["out_dir"])
     out_dir.mkdir(parents=True, exist_ok=True)
