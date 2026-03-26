@@ -1,4 +1,4 @@
-# LFW Face Verification
+# LFW Face Verification - Milestone 2
 
 Binary face verification on the **Labeled Faces in the Wild (LFW)** dataset.
 Given two face images, the system produces a cosine-similarity score and makes a
