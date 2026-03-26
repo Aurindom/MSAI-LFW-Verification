@@ -1,10 +1,6 @@
 import numpy as np
 
 
-# =========================
-# VECTORIZE IMPLEMENTATIONS
-# =========================
-
 def cosine_similarity_vectorized(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     dot = np.sum(a * b, axis=1)
     norm_a = np.linalg.norm(a, axis=1)
@@ -16,9 +12,6 @@ def euclidean_distance_vectorized(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     return np.linalg.norm(a - b, axis=1)
 
 
-# =========================
-# LOOP BASELINES (FOR BENCH)
-# =========================
 
 def cosine_similarity_loop(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     results = []

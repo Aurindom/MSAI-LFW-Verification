@@ -1,0 +1,21 @@
+{
+  "run_id": "run_004",
+  "timestamp": "2026-03-26T01:08:13.178740+00:00",
+  "commit": "6a64cc3",
+  "config": "m2",
+  "split": "val",
+  "data_version": "v2",
+  "threshold": 0.46,
+  "metrics": {
+    "selected_threshold": 0.46,
+    "roc_auc": 0.970787,
+    "balanced_accuracy": 0.925,
+    "tpr": 0.958824,
+    "fpr": 0.108824,
+    "f1": 0.927454
+  },
+  "note": "Post data-centric change (v2 pairs) threshold sweep on val",
+  "extra": {
+    "roc_auc": 0.970787141003
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "run_id": "run_002",
+  "timestamp": "2026-03-26T01:08:12.846388+00:00",
+  "commit": "6a64cc3",
+  "config": "m2",
+  "split": "val",
+  "data_version": "v1",
+  "threshold": 0.49,
+  "metrics": {
+    "threshold": 0.49,
+    "accuracy": 0.919622,
+    "precision": 0.911422,
+    "recall": 0.928741,
+    "f1": 0.92,
+    "balanced_accuracy": 0.919665,
+    "tpr": 0.928741,
+    "fpr": 0.089412,
+    "fnr": 0.071259,
+    "tnr": 0.910588,
+    "tp": 391,
+    "fp": 38,
+    "tn": 387,
+    "fn": 30
+  },
+  "note": "Baseline v1 selected-threshold eval on val (thr=0.4900)"
+}

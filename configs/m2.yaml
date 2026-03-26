@@ -1,0 +1,40 @@
+seed: 42
+
+data:
+  pairs_dir: outputs/pairs          
+  pairs_dir_v2: outputs/pairs_v2    
+
+splits:
+  threshold_selection: val   
+  final_reporting: test      
+
+scoring:
+  method: cosine_similarity
+  score_direction: higher_is_more_similar
+  positive_mean: 0.70
+  positive_std: 0.15
+  negative_mean: 0.30
+  negative_std: 0.15
+
+threshold_sweep:
+  min: 0.01
+  max: 0.99
+  steps: 99
+
+threshold_selection:
+  rule: max_balanced_accuracy   
+
+
+pair_policy_v2:
+  positives_per_identity: 4
+  negatives_per_identity: 4
+  max_pairs_per_identity: 8    
+  filter_duplicates: true       
+  enforce_balance: true         
+
+tracking:
+  artifacts_dir: artifacts/runs
+  summary_file: artifacts/runs_summary.csv
+
+reports:
+  figures_dir: reports/figures

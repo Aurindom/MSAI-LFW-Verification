@@ -15,7 +15,7 @@ def main(config_path):
 
     seed = config["seed"]
 
-    # Simulated deterministic counts for milestone 1 foundation
+ 
     manifest = {
         "seed": seed,
         "split_policy": "identity-based 70/15/15",
