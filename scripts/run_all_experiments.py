@@ -8,7 +8,7 @@ import yaml
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from src.evaluation import compute_roc_curve, compute_auc, select_threshold, threshold_sweep
-from src.scoring import generate_scores
+from src.scoring import score_pairs
 from src.tracking import log_run, print_summary
 from src.validation import validate_pairs_df, validate_scores, validate_config
 
@@ -30,13 +30,8 @@ def load_pairs(pairs_dir: str, split: str) -> pd.DataFrame:
 
 
 def run_sweep(df, config, split, data_version, note, artifacts_dir, summary_file, config_name):
-    seed = config["seed"]
-    sc = config["scoring"]
-    scores = generate_scores(df, seed=seed,
-                             positive_mean=sc["positive_mean"],
-                             positive_std=sc["positive_std"],
-                             negative_mean=sc["negative_mean"],
-                             negative_std=sc["negative_std"])
+    image_size = config["scoring"].get("image_size", 64)
+    scores = score_pairs(df, image_size=image_size)
     validate_scores(scores, df)
     y_true = df["label"].values
 
@@ -78,13 +73,8 @@ def run_sweep(df, config, split, data_version, note, artifacts_dir, summary_file
 
 def run_fixed(df, config, split, data_version, threshold, note, artifacts_dir, summary_file, config_name):
     from src.evaluation import compute_metrics
-    seed = config["seed"]
-    sc = config["scoring"]
-    scores = generate_scores(df, seed=seed,
-                             positive_mean=sc["positive_mean"],
-                             positive_std=sc["positive_std"],
-                             negative_mean=sc["negative_mean"],
-                             negative_std=sc["negative_std"])
+    image_size = config["scoring"].get("image_size", 64)
+    scores = score_pairs(df, image_size=image_size)
     validate_scores(scores, df)
     y_true = df["label"].values
     m = compute_metrics(y_true, scores, threshold)

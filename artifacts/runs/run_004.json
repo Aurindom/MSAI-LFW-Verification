@@ -1,21 +1,21 @@
 {
   "run_id": "run_004",
-  "timestamp": "2026-03-26T01:08:13.178740+00:00",
-  "commit": "6a64cc3",
+  "timestamp": "2026-04-07T20:58:20.157052+00:00",
+  "commit": "079ffba",
   "config": "m2",
   "split": "val",
   "data_version": "v2",
-  "threshold": 0.46,
+  "threshold": 0.97,
   "metrics": {
-    "selected_threshold": 0.46,
-    "roc_auc": 0.970787,
-    "balanced_accuracy": 0.925,
-    "tpr": 0.958824,
-    "fpr": 0.108824,
-    "f1": 0.927454
+    "selected_threshold": 0.97,
+    "roc_auc": 0.64943,
+    "balanced_accuracy": 0.606405,
+    "tpr": 0.508264,
+    "fpr": 0.295455,
+    "f1": 0.563574
   },
   "note": "Post data-centric change (v2 pairs) threshold sweep on val",
   "extra": {
-    "roc_auc": 0.970787141003
+    "roc_auc": 0.649430329204
   }
 }

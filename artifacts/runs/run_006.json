@@ -1,0 +1,26 @@
+{
+  "run_id": "run_006",
+  "timestamp": "2026-04-08T18:25:24.574643+00:00",
+  "commit": "079ffba",
+  "config": "m3",
+  "split": "val",
+  "data_version": "v2",
+  "threshold": 0.68,
+  "metrics": {
+    "threshold": 0.68,
+    "accuracy": 0.975207,
+    "precision": 0.981172,
+    "recall": 0.969008,
+    "f1": 0.975052,
+    "balanced_accuracy": 0.975207,
+    "tpr": 0.969008,
+    "fpr": 0.018595,
+    "fnr": 0.030992,
+    "tnr": 0.981405,
+    "tp": 469,
+    "fp": 9,
+    "tn": 475,
+    "fn": 15
+  },
+  "note": "M3 FaceNet threshold sweep on val - select operating threshold"
+}

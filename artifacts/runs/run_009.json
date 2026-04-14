@@ -1,0 +1,26 @@
+{
+  "run_id": "run_009",
+  "timestamp": "2026-04-14T16:28:37.976467+00:00",
+  "commit": "079ffba",
+  "config": "m3",
+  "split": "test",
+  "data_version": "v2",
+  "threshold": 0.68,
+  "metrics": {
+    "threshold": 0.68,
+    "accuracy": 0.977754,
+    "precision": 0.974737,
+    "recall": 0.980932,
+    "f1": 0.977825,
+    "balanced_accuracy": 0.977754,
+    "tpr": 0.980932,
+    "fpr": 0.025424,
+    "fnr": 0.019068,
+    "tnr": 0.974576,
+    "tp": 463,
+    "fp": 12,
+    "tn": 460,
+    "fn": 9
+  },
+  "note": "M3 FaceNet final test reporting (thr=0.6800)"
+}

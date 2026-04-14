@@ -1,30 +1,27 @@
 import numpy as np
 import pandas as pd
+from PIL import Image
 
 
-def generate_scores(
-    pairs_df: pd.DataFrame,
-    seed: int,
-    positive_mean: float = 0.70,
-    positive_std: float = 0.15,
-    negative_mean: float = 0.30,
-    negative_std: float = 0.15,
-) -> np.ndarray:
-    labels = pairs_df["label"].values
-    row_seeds = np.array(
-        [
-            abs(hash(f"{seed}:{l}:{r}")) % (2**31)
-            for l, r in zip(pairs_df["left_path"], pairs_df["right_path"])
-        ],
-        dtype=np.int64,
-    )
+def _load_vector(path: str, image_size: int) -> np.ndarray:
+    img = Image.open(path).convert("RGB").resize((image_size, image_size))
+    vec = np.array(img, dtype=np.float32).flatten()
+    norm = np.linalg.norm(vec)
+    if norm > 0:
+        vec /= norm
+    return vec
 
-    scores = np.empty(len(pairs_df), dtype=np.float64)
-    for i, (label, rseed) in enumerate(zip(labels, row_seeds)):
-        rng = np.random.default_rng(rseed)
-        if label == 1:
-            scores[i] = rng.normal(positive_mean, positive_std)
-        else:
-            scores[i] = rng.normal(negative_mean, negative_std)
 
-    return np.clip(scores, 0.0, 1.0)
+def compute_pixel_similarity(path_a: str, path_b: str, image_size: int = 64) -> float:
+    va = _load_vector(path_a, image_size)
+    vb = _load_vector(path_b, image_size)
+    cosine = float(np.dot(va, vb))
+    return (cosine + 1.0) / 2.0
+
+
+def score_pairs(pairs_df: pd.DataFrame, image_size: int = 64) -> np.ndarray:
+    scores = np.array([
+        compute_pixel_similarity(row.left_path, row.right_path, image_size)
+        for row in pairs_df.itertuples(index=False)
+    ])
+    return scores

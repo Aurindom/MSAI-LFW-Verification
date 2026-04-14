@@ -1,0 +1,15 @@
+{
+  "n_workers": 4,
+  "n_requests": 50,
+  "n_success": 50,
+  "n_failure": 0,
+  "wall_time_s": 5.603,
+  "throughput_rps": 8.923,
+  "latency_mean_ms": 442.24,
+  "latency_p50_ms": 193.93,
+  "latency_p95_ms": 3274.98,
+  "latency_p99_ms": 3312.21,
+  "latency_min_ms": 121.79,
+  "latency_max_ms": 3319.11,
+  "pairs_source": "outputs/pairs_v2/val.csv"
+}

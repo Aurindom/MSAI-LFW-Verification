@@ -1,0 +1,31 @@
+seed: 42
+data:
+  lfw_images_dir: data/lfw_images
+  split_map_path: outputs/split_map.json
+  manifest_path: outputs/manifest.json
+  pairs_dir: outputs/pairs
+  pairs_dir_v2: outputs/pairs_v2
+embedding:
+  model: InceptionResnetV1
+  pretrained: vggface2
+  image_size: 160
+  embedding_dim: 512
+  source: facenet-pytorch 2.6.0
+scoring:
+  method: cosine_similarity
+  score_direction: higher_is_more_similar
+threshold:
+  value: 0.69
+  selection_split: val
+  selection_rule: max_balanced_accuracy
+  data_version: v2
+inference:
+  image_size: 160
+load_test:
+  n_workers: 4
+  n_requests: 50
+  pairs_source: outputs/pairs_v2/val.csv
+  output_path: artifacts/load_test_results.json
+tracking:
+  artifacts_dir: artifacts/runs
+  summary_file: artifacts/runs_summary.csv

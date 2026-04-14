@@ -1,20 +1,20 @@
 seed: 42
 
 data:
-  pairs_dir: outputs/pairs          
-  pairs_dir_v2: outputs/pairs_v2    
+  lfw_images_dir: data/lfw_images
+  split_map_path: outputs/split_map.json
+  manifest_path: outputs/manifest.json
+  pairs_dir: outputs/pairs
+  pairs_dir_v2: outputs/pairs_v2
 
 splits:
-  threshold_selection: val   
-  final_reporting: test      
+  threshold_selection: val
+  final_reporting: test
 
 scoring:
-  method: cosine_similarity
+  method: pixel_cosine_similarity
   score_direction: higher_is_more_similar
-  positive_mean: 0.70
-  positive_std: 0.15
-  negative_mean: 0.30
-  negative_std: 0.15
+  image_size: 64
 
 threshold_sweep:
   min: 0.01
@@ -22,15 +22,18 @@ threshold_sweep:
   steps: 99
 
 threshold_selection:
-  rule: max_balanced_accuracy   
+  rule: max_balanced_accuracy
 
+pair_policy:
+  positives_per_identity: 3
+  negatives_per_identity: 3
 
 pair_policy_v2:
-  positives_per_identity: 4
-  negatives_per_identity: 4
-  max_pairs_per_identity: 8    
-  filter_duplicates: true       
-  enforce_balance: true         
+  positives_per_identity: 3
+  negatives_per_identity: 3
+  max_pairs_per_identity: 6
+  filter_duplicates: true
+  enforce_balance: true
 
 tracking:
   artifacts_dir: artifacts/runs

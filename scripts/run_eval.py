@@ -15,7 +15,7 @@ from src.evaluation import (
     select_threshold,
     threshold_sweep,
 )
-from src.scoring import generate_scores
+from src.scoring import score_pairs
 from src.tracking import log_run, print_summary
 from src.validation import (
     validate_config,
@@ -112,12 +112,8 @@ def main(args) -> None:
           f"neg={(split_df['label']==0).sum()})")
 
     
-    sc = config["scoring"]
-    scores = generate_scores(
-        split_df, seed=seed,
-        positive_mean=sc["positive_mean"], positive_std=sc["positive_std"],
-        negative_mean=sc["negative_mean"], negative_std=sc["negative_std"],
-    )
+    image_size = config["scoring"].get("image_size", 64)
+    scores = score_pairs(split_df, image_size=image_size)
     validate_scores(scores, split_df)
     y_true = split_df["label"].values
 

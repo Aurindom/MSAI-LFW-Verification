@@ -1,0 +1,5 @@
+left_path,right_path,label,split
+samples/Aaron_Peirsol/Aaron_Peirsol_0001.jpg,samples/Aaron_Peirsol/Aaron_Peirsol_0002.jpg,1,test
+samples/Adam_Sandler/Adam_Sandler_0000.jpg,samples/Adam_Sandler/Adam_Sandler_0001.jpg,1,test
+samples/Aaron_Peirsol/Aaron_Peirsol_0001.jpg,samples/Adam_Sandler/Adam_Sandler_0000.jpg,0,test
+samples/Aaron_Peirsol/Aaron_Peirsol_0002.jpg,samples/Adam_Sandler/Adam_Sandler_0001.jpg,0,test

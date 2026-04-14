@@ -12,9 +12,9 @@ def _current_commit() -> str:
             ["git", "rev-parse", "--short", "HEAD"],
             capture_output=True, text=True, timeout=5,
         )
-        return result.stdout.strip() or "unknown"
+        return result.stdout.strip() or os.environ.get("GIT_COMMIT", "unknown")
     except Exception:
-        return "unknown"
+        return os.environ.get("GIT_COMMIT", "unknown")
 
 
 def _next_run_id(artifacts_dir: str) -> str:

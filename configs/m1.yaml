@@ -1,18 +1,20 @@
 seed: 42
 
 data:
-  tfds_name: lfw
-  tfds_version: 1.0.0
-  cache_dir: data/tfds
+  data_source: sklearn.datasets.fetch_lfw_people
+  min_faces_per_person: 2
+  lfw_images_dir: data/lfw_images
+  manifest_path: outputs/manifest.json
+  split_map_path: outputs/split_map.json
 
 split_policy:
-  train_ratio: 0.7
+  train_ratio: 0.70
   val_ratio: 0.15
   test_ratio: 0.15
 
 pair_policy:
-  positives_per_identity: 5
-  negatives_per_identity: 5
+  positives_per_identity: 3
+  negatives_per_identity: 3
 
 benchmark:
   N: 20000
