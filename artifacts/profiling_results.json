@@ -1,0 +1,72 @@
+{
+  "system": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 165 Stepping 2, GenuineIntel",
+    "python": "3.10.19",
+    "cpu_count_logical": 12
+  },
+  "threshold": 0.68,
+  "image_size": 160,
+  "per_stage_latency": {
+    "warmup_runs": 2,
+    "timed_runs": 5,
+    "preprocess": {
+      "mean_ms": 1.966,
+      "min_ms": 1.755,
+      "max_ms": 2.244
+    },
+    "embed": {
+      "mean_ms": 72.513,
+      "min_ms": 67.985,
+      "max_ms": 77.456
+    },
+    "score": {
+      "mean_ms": 0.063,
+      "min_ms": 0.055,
+      "max_ms": 0.076
+    },
+    "end_to_end": {
+      "mean_ms": 74.546,
+      "min_ms": 69.866,
+      "max_ms": 79.758
+    }
+  },
+  "batch_sensitivity": [
+    {
+      "batch_size": 1,
+      "mean_total_ms": 74.313,
+      "mean_per_pair_ms": 74.313,
+      "throughput_pairs_per_sec": 13.46
+    },
+    {
+      "batch_size": 2,
+      "mean_total_ms": 152.442,
+      "mean_per_pair_ms": 76.221,
+      "throughput_pairs_per_sec": 13.12
+    },
+    {
+      "batch_size": 4,
+      "mean_total_ms": 298.003,
+      "mean_per_pair_ms": 74.501,
+      "throughput_pairs_per_sec": 13.42
+    },
+    {
+      "batch_size": 8,
+      "mean_total_ms": 603.533,
+      "mean_per_pair_ms": 75.442,
+      "throughput_pairs_per_sec": 13.26
+    },
+    {
+      "batch_size": 16,
+      "mean_total_ms": 1212.567,
+      "mean_per_pair_ms": 75.785,
+      "throughput_pairs_per_sec": 13.2
+    },
+    {
+      "batch_size": 32,
+      "mean_total_ms": 2452.378,
+      "mean_per_pair_ms": 76.637,
+      "throughput_pairs_per_sec": 13.05
+    }
+  ]
+}

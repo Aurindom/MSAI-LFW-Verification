@@ -15,7 +15,7 @@ scoring:
   method: cosine_similarity
   score_direction: higher_is_more_similar
 threshold:
-  value: 0.69
+  value: 0.68
   selection_split: val
   selection_rule: max_balanced_accuracy
   data_version: v2
